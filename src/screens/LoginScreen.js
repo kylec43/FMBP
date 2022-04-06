@@ -1,37 +1,47 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import AuthForm from '../components/AuthForm';
 import useAuth from '../hooks/useAuth';
-import useSignup from '../hooks/useSignup';
+import AuthForm from '../components/AuthForm';
+import HyperLink from '../components/HyperLink';
+import useLogin from '../hooks/useLogin';
 
-function SignupScreen() {
+function LoginScreen() {
 
     const {
         email, setEmail, 
         password, setPassword, 
     } = useAuth();
 
-    const { handleSignup } = useSignup();
+    const { handleLogin } = useLogin();
 
     return (
         <View style={styles.container}>
             <AuthForm
                 email={email}
                 password={password}
-                buttonText="Sign up"
+                buttonText="Log in"
                 onChangeEmail={setEmail}
                 onChangePassword={setPassword}
-                onSubmit={() => handleSignup(email, password)}
+                onSubmit={() => handleLogin(email, password)}
+            />
+            <HyperLink
+                style={styles.link}
+                title="New user? Sign up!"
+                href="Signup"
             />
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 10,
         paddingTop: 50
     },
+    link: {
+        marginTop: 24,
+    }
 });
 
-export default SignupScreen;
+export default LoginScreen;
