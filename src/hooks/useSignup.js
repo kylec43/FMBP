@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { getAuth } from 'firebase/auth';
 import { Context as AuthContext } from '../context/authContext';
+import Util from '../util/Util';
 
 
 function useSignup() {
@@ -14,7 +15,7 @@ function useSignup() {
         signup(email, password).then((userCredentials) => {
             navigation.replace("HomeFlow");
         }).catch((e) => {
-            console.log("Signup Error! From Signup Screen!");
+            Util.displayAlert("Error", `Signup Error! From Signup Screen! ${e}`);
         });
     };
 
