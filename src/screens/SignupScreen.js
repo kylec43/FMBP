@@ -1,17 +1,15 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import AuthForm from '../components/AuthForm';
-import useAuth from '../hooks/useAuth';
 import useSignup from '../hooks/useSignup';
 
 function SignupScreen() {
 
-    const {
-        email, setEmail, 
-        password, setPassword, 
-    } = useAuth();
-
-    const { handleSignup } = useSignup();
+    const { 
+        email, setEmail,
+        password, setPassword,
+        handleSignup 
+    } = useSignup();
 
     return (
         <View style={styles.container}>

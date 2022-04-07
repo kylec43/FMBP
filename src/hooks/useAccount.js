@@ -9,10 +9,7 @@ function useAccount() {
 
     const handleLogout = () => {
 
-        logout().then(() => {
-            navigation.replace("AuthFlow");
-            console.log("Logout success! From Home Screen");
-        }).catch((e) => {
+        logout().catch((e) => {
             Util.displayAlert("Error", `Error logging out! From Home Screen: ${e}`);
         });
     };

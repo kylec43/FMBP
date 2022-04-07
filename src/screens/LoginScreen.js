@@ -1,18 +1,16 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import useAuth from '../hooks/useAuth';
 import AuthForm from '../components/AuthForm';
 import HyperLink from '../components/HyperLink';
 import useLogin from '../hooks/useLogin';
 
 function LoginScreen() {
 
-    const {
+    const { 
         email, setEmail, 
         password, setPassword, 
-    } = useAuth();
-
-    const { handleLogin } = useLogin();
+        handleLogin 
+    } = useLogin();
 
     return (
         <View style={styles.container}>

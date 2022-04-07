@@ -67,18 +67,8 @@ const logout = (dispatch) => () => {
 }
 
 
-const getCurrentUser = (dispatch) => () => {
-    const user = getAuth().currentUser;
-    if (user) {
-        dispatch({type: "authenticated", payload: user});
-    }
-
-    return user;
-}
-
-
 export const {Context, Provider} = createDataContext(
     reducer,
-    { signup, login, logout, getCurrentUser },
+    { signup, login, logout },
     { user: null }
 );

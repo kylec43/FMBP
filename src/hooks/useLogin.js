@@ -1,24 +1,21 @@
-import React, { useContext } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useContext, useState } from 'react';
 import { Context as AuthContext } from '../context/authContext';
 import Util from '../util/Util';
 
 function useLogin() {
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const { login } = useContext(AuthContext);
-    const navigation = useNavigation();
 
 
     const handleLogin = (email, password) => {
-        login(email, password).then((userCredentials) => {
-            navigation.replace("HomeFlow");
-        }).catch((e) => {
+        login(email, password).catch((e) => {
             Util.displayAlert("Error", `Login Error! From Login Screen! ${e}`);
         });
     };
 
 
-    return { handleLogin };
+    return { email, setEmail, password, setPassword, handleLogin };
 }
 
 
