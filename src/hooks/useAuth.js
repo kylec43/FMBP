@@ -16,7 +16,7 @@ function useAuth() {
             const currentUser = getCurrentUser();
             if (currentUser) {
                 console.log("User logged in!");
-                navigation.navigate("Home");
+                navigation.replace("HomeFlow");
             } else {
                 console.log("User not logged in!");
             }

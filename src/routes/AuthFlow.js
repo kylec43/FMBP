@@ -19,11 +19,6 @@ function AuthFlow() {
                 component={LoginScreen}
                 options={{headerTitle: "Login"}}
             />
-            <Stack.Screen 
-                name="Home" 
-                component={HomeScreen}
-                options={{headerTitle: "Home Screen"}}
-            />
         </Stack.Navigator>
     );
 }

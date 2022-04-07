@@ -10,7 +10,7 @@ function useLogin() {
 
     const handleLogin = (email, password) => {
         login(email, password).then((userCredentials) => {
-            navigation.navigate("Home");
+            navigation.replace("HomeFlow");
         }).catch((e) => {
             console.log("Login Error! From Login Screen!", e);
         });

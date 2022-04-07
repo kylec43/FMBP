@@ -12,7 +12,7 @@ function useSignup() {
 
     const handleSignup = (email, password) => {
         signup(email, password).then((userCredentials) => {
-            navigation.navigate("Home");
+            navigation.replace("HomeFlow");
         }).catch((e) => {
             console.log("Signup Error! From Signup Screen!");
         });
