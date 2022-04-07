@@ -3,8 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Context as AuthContext } from '../context/authContext';
 import Util from '../util/Util';
 
-function useHome() {
-
+function useAccount() {
     const { logout } = useContext(AuthContext);
     const navigation = useNavigation();
 
@@ -18,9 +17,8 @@ function useHome() {
         });
     };
 
-
     return { handleLogout };
 }
 
 
-export default useHome;
+export default useAccount;
