@@ -4,9 +4,10 @@ import { Text, TextInput, StyleSheet } from 'react-native';
 /*
     Props:
     1) value, onChangeText
-    2) (optional) labelText, labelStyle
-    3) (optional) autoCapitalize, autoCorrect
-    4) (optional) secure (for passwords)
+    2) (optional) entryStyle
+    3) (optional) labelText, labelStyle
+    4) (optional) autoCapitalize, autoCorrect
+    5) (optional) secure (for passwords)
 */
 function TextEntry(props) {
 
@@ -15,14 +16,14 @@ function TextEntry(props) {
         <>
             { props.labelText 
                 ? 
-                    <Text style={props.labelStyle ? props.labelStyle : styles.label}>
+                    <Text style={[styles.label, props.labelStyle]}>
                         {props.labelText}
                     </Text>
                 : 
                     null
             }
             <TextInput
-                style={props.entryStyle ? props.entryStyle : styles.entry}
+                style={[styles.entry, props.entryStyle]}
                 value={props.entryValue}
                 onChangeText={props.onChangeText}
                 autoCapitalize={props.autoCapitalize ? props.autoCapitalize : "none"}

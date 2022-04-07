@@ -8,7 +8,7 @@ function HyperLink({ title, style, href, external = false }) {
     return (
         <>
             <TouchableOpacity onPress={() => href ? navigation.navigate(href) : null}>
-                <Text style={[style, styles.hyperlink]}>{title}</Text>
+                <Text style={[styles.hyperlink, style]}>{title}</Text>
             </TouchableOpacity>
         </>
     );
