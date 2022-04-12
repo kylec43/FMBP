@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import TextEntry from './TextEntry';
+import Input from './Input';
 
 function AuthForm({ email, password, buttonText, onChangeEmail, onChangePassword, onSubmit }) {
 
     return (
         <View>
-            <TextEntry
-                labelText="Email"
+
+            <Text style={styles.label}>Email</Text>
+            <Input
                 value={email}
                 onChangeText={onChangeEmail}
             />
-            <TextEntry
-                labelText="Password"
+
+            <Text style={styles.label}>Password</Text>
+            <Input
                 value={password}
                 onChangeText={onChangePassword}
                 secure={true}
@@ -27,6 +29,10 @@ function AuthForm({ email, password, buttonText, onChangeEmail, onChangePassword
 
 
 const styles = StyleSheet.create({
+    label: {
+        fontSize: 20,
+        fontWeight: "bold"
+    },
 });
 
 
