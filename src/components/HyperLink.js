@@ -6,11 +6,9 @@ function HyperLink({ title, style, href, external = false }) {
     const navigation = useNavigation();
 
     return (
-        <>
-            <TouchableOpacity onPress={() => href ? navigation.navigate(href) : null}>
-                <Text style={[styles.hyperlink, style]}>{title}</Text>
-            </TouchableOpacity>
-        </>
+        <TouchableOpacity onPress={() => href ? navigation.navigate(href) : null}>
+            <Text style={[styles.hyperlink, style]}>{title}</Text>
+        </TouchableOpacity>
     );
 }
 

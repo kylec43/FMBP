@@ -9,20 +9,18 @@ function AccountScreen() {
     const { handleLogout } = useAccount();
 
     return (
-        <>
-            <View style={styles.container}>
-                <Text style={styles.header}>Account Screen</Text>
-                <Text style={styles.smallHeader}>Email: {user ? user.email : ""}</Text>
-                <Text style={styles.smallHeader}>UID: {user ? user.uid : ""}</Text>
+        <View style={styles.container}>
+            <Text style={styles.header}>Account Screen</Text>
+            <Text style={styles.smallHeader}>Email: {user ? user.email : ""}</Text>
+            <Text style={styles.smallHeader}>UID: {user ? user.uid : ""}</Text>
 
-                <View style={styles.logoutContainer}>
-                    <Button 
-                        title="Log out"
-                        onPress={handleLogout}
-                    />
-                </View>
+            <View style={styles.logoutContainer}>
+                <Button 
+                    title="Log out"
+                    onPress={handleLogout}
+                />
             </View>
-        </>
+        </View>
     );
 }
 

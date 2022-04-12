@@ -8,13 +8,10 @@ function HomeScreen() {
     const { user } = useContext(AuthContext);
 
     return (
-        <>
-            <View style={styles.container}>
-                <Text style={styles.header}>Home Screen</Text>
-                <Text style={styles.smallHeader}>Hello {user ? user.email : ""}!</Text>
-            </View>
-        </>
-
+        <View style={styles.container}>
+            <Text style={styles.header}>Home Screen</Text>
+            <Text style={styles.smallHeader}>Hello {user ? user.email : ""}!</Text>
+        </View>
     );
 
 }

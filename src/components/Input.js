@@ -5,17 +5,15 @@ function TextEntry({value, onChangeText, style=null, autoCapitalize="none", auto
 
 
     return (
-        <>
-            <TextInput
-                style={[styles.input, style]}
-                value={value}
-                onChangeText={onChangeText}
-                autoCapitalize={autoCapitalize}
-                autoCorrect={autoCorrect}
-                secureTextEntry={secure}
-                placeholder={placeholder}
-            />
-        </>
+        <TextInput
+            style={[styles.input, style]}
+            value={value}
+            onChangeText={onChangeText}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={autoCorrect}
+            secureTextEntry={secure}
+            placeholder={placeholder}
+        />
     );
 }
 
