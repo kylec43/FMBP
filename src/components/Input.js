@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TextInput, StyleSheet } from 'react-native';
 
-function TextEntry({value, onChangeText, style=null, autoCapitalize="none", autoCorrect=false, secure=false}) {
+function TextEntry({value, onChangeText, style=null, autoCapitalize="none", autoCorrect=false, placeholder="", secure=false}) {
 
 
     return (
@@ -13,6 +13,7 @@ function TextEntry({value, onChangeText, style=null, autoCapitalize="none", auto
                 autoCapitalize={autoCapitalize}
                 autoCorrect={autoCorrect}
                 secureTextEntry={secure}
+                placeholder={placeholder}
             />
         </>
     );

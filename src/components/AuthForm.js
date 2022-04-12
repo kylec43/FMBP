@@ -11,6 +11,7 @@ function AuthForm({ email, password, buttonText, onChangeEmail, onChangePassword
             <Input
                 value={email}
                 onChangeText={onChangeEmail}
+                placeholder="Email"
             />
 
             <Text style={styles.label}>Password</Text>
@@ -18,6 +19,7 @@ function AuthForm({ email, password, buttonText, onChangeEmail, onChangePassword
                 value={password}
                 onChangeText={onChangePassword}
                 secure={true}
+                placeholder="Password"
             />
             <Button 
                 title={buttonText ? buttonText : "Submit"}
