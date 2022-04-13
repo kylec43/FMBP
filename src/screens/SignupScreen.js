@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import AuthForm from '../components/AuthForm';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import AuthFormInput from '../components/AuthFormInput';
 import useSignup from '../hooks/useSignup';
+import Logo from '../components/Logo';
+import Spacer from '../components/Spacer';
+import BigButton from '../components/BigButton';
 
 function SignupScreen() {
 
@@ -13,14 +16,28 @@ function SignupScreen() {
 
     return (
         <View style={styles.container}>
-            <AuthForm
-                email={email}
-                password={password}
-                buttonText="Sign up"
-                onChangeEmail={setEmail}
-                onChangePassword={setPassword}
-                onSubmit={() => handleSignup(email, password)}
-            />
+
+            <View style={styles.flexContainer}>
+                <Logo containerStyle={styles.logoContainer} />
+            </View>
+
+            <View style={styles.flexContainer}>
+                <AuthFormInput
+                    email={email}
+                    password={password}
+                    onChangeEmail={setEmail}
+                    onChangePassword={setPassword}
+                />
+            </View>
+
+            <View style={styles.flexContainer}>
+                <BigButton 
+                    title="Sign up"
+                    onPress={() => handleSignup(email, password)}
+                    style={styles.loginButton}
+                >
+                </BigButton>
+            </View>
         </View>
     );
 }
@@ -28,8 +45,25 @@ function SignupScreen() {
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 10,
-        paddingTop: 50
+        flex: 1
     },
+    flexContainer: {
+        flex: 1,
+    },
+    loginButton: {
+        backgroundColor: "#525252"
+    },
+    signupButton: {
+        backgroundColor: "white"
+    },
+    signupTitle: {
+        color: "black",
+        fontWeight: "normal"
+    },
+    logoContainer: {
+        alignSelf: "center",
+        marginTop: 20
+    }
 });
 
 export default SignupScreen;

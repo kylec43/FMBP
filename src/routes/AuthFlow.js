@@ -12,12 +12,12 @@ function AuthFlow() {
             <Stack.Screen
                 name="Signup"
                 component={SignupScreen}
-                options={{headerTitle: "Signup"}}
+                options={{headerTitle: "Signup", cardStyle: {backgroundColor: "#111111"}}}
             />
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
-                options={{headerTitle: "Login"}}
+                options={{headerTitle: "Login", cardStyle: {backgroundColor: "#111111"}}}
             />
         </Stack.Navigator>
     );
