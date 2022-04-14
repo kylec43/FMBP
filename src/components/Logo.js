@@ -1,24 +1,23 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Assets from '../constants/Assets';
+import Image from './Image';
 
-function Logo({ containerStyle }) {
+function Logo({ style, width, height }) {
 
     return (
-        <View style={containerStyle}>
-            <Image style={styles.logoStyle} source={require('../../assets/images/FMBP_Logo.png')} />
-            <Image style={styles.coStyle} source={require('../../assets/images/Co.png')} />
-        </View>
+        <Image 
+            style={[styles.logoStyle, style, width ? {width} : null, height ? {height} : null]}  
+            source={Assets.LOGO} 
+        />
     );
 }
 
 const styles = StyleSheet.create({
-    coStyle: {
-        marginTop: -40,
-        alignSelf: "center"
-    },
     logoStyle: {
-        marginTop: -40,
-        alignSelf: "center"
+        alignSelf: "center",
+        width: 150,
+        height: 150
     }
 });
 
