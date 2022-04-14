@@ -1,10 +1,13 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import AuthFormInput from '../components/AuthFormInput';
 import useSignup from '../hooks/useSignup';
 import Logo from '../components/Logo';
-import Spacer from '../components/Spacer';
-import BigButton from '../components/BigButton';
+import Button from '../components/Button';
+import Image from '../components/Image';
+import Assets from '../constants/Assets';
+import { FontAwesome5 } from '@expo/vector-icons';
+import SocialButtonGroup from '../components/SocialButtonGroup';
 
 function SignupScreen() {
 
@@ -17,11 +20,12 @@ function SignupScreen() {
     return (
         <View style={styles.container}>
 
-            <View style={styles.flexContainer}>
-                <Logo containerStyle={styles.logoContainer} />
+            <View style={{flex: 2}}>
+                <Logo style={styles.logo} width={75} height={75} />
             </View>
 
-            <View style={styles.flexContainer}>
+            <View style={{flex: 3}}>
+                <Text style={styles.inputHeader}>CREATE AN ACCOUNT</Text>
                 <AuthFormInput
                     email={email}
                     password={password}
@@ -30,13 +34,17 @@ function SignupScreen() {
                 />
             </View>
 
-            <View style={styles.flexContainer}>
-                <BigButton 
-                    title="Sign up"
+            <View style={{flex: 3}}>
+                <Button 
+                    title="Create account"
                     onPress={() => handleSignup(email, password)}
                     style={styles.loginButton}
-                >
-                </BigButton>
+                    className="large"
+                />
+                <SocialButtonGroup 
+                    containerStyle={styles.socialGroupContainer} 
+                    spacing={20} 
+                />
             </View>
         </View>
     );
@@ -46,9 +54,6 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 10,
         flex: 1
-    },
-    flexContainer: {
-        flex: 1,
     },
     loginButton: {
         backgroundColor: "#525252"
@@ -60,8 +65,18 @@ const styles = StyleSheet.create({
         color: "black",
         fontWeight: "normal"
     },
-    logoContainer: {
-        alignSelf: "center",
+    logo: {
+        alignSelf: "flex-start",
+        marginTop: 20,
+        marginLeft: 10
+    },
+    inputHeader: {
+        fontSize: 25,
+        fontWeight: "bold",
+        color: "white",
+        marginBottom: 20
+    },
+    socialGroupContainer: {
         marginTop: 20
     }
 });

@@ -2,8 +2,9 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import useLogin from '../hooks/useLogin';
 import AuthFormInput from '../components/AuthFormInput';
-import BigButton from '../components/BigButton';
+import Button from '../components/Button';
 import Logo from '../components/Logo';
+import SocialButtonGroup from '../components/SocialButtonGroup';
 
 function LoginScreen({ navigation }) {
 
@@ -16,11 +17,11 @@ function LoginScreen({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <View style={styles.flexContainer}>
-                <Logo containerStyle={styles.logoContainer} />
+            <View style={{flex: 1}}>
+                <Logo style={styles.logo} width={150} height={150} />
             </View>
 
-            <View style={styles.flexContainer}>
+            <View style={{flex: 1}}>
                 <AuthFormInput
                     email={email}
                     password={password}
@@ -29,20 +30,24 @@ function LoginScreen({ navigation }) {
                 />
             </View>
 
-            <View style={styles.flexContainer}>
-                <BigButton 
+            <View style={{flex: 2, justifyContent: "center"}}>
+                <Button 
                     title="Login"
                     onPress={() => handleLogin(email, password)}
                     style={styles.loginButton}
-                >
-                </BigButton>
-                <BigButton 
+                    className="large"
+                />
+                <Button 
                     title="Sign up"
                     onPress={() => navigation.navigate("Signup")}
                     style={styles.signupButton}
                     titleStyle={styles.signupTitle}
-                >
-                </BigButton>
+                    className="large"
+                />
+                <SocialButtonGroup
+                    containerStyle={styles.socialGroupContainer}
+                    spacing={20}
+                />
             </View>
         </View>
     );
@@ -52,9 +57,6 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 10,
         flex: 1
-    },
-    flexContainer: {
-        flex: 1,
     },
     loginButton: {
         backgroundColor: "#525252"
@@ -67,8 +69,11 @@ const styles = StyleSheet.create({
         color: "black",
         fontWeight: "normal"
     },
-    logoContainer: {
+    logo: {
         alignSelf: "center",
+        marginTop: 20
+    },
+    socialGroupContainer: {
         marginTop: 20
     }
 });

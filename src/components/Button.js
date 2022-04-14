@@ -2,15 +2,15 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 
-function BigButton({ title, onPress, style, titleStyle }) {
-
+function Button({ children, title, onPress, style, titleStyle, className="normal" }) {
 
     return (
         <TouchableOpacity 
             onPress={onPress}
-            style={[styles.button, style]}
+            style={[styles.button, className === "large" ? styles.largeButton : null, style]}
         >
-            <Text style={[styles.title, titleStyle]}>{title}</Text>
+            {title ? <Text style={[styles.title, titleStyle]}>{title}</Text> : null}
+            {children}
         </TouchableOpacity>
     );
 }
@@ -19,12 +19,14 @@ function BigButton({ title, onPress, style, titleStyle }) {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: "#24a0ed",
-        width: "100%",
+        width: 200,
         height: 60,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 5,
-        opacity: 0.9
+    },
+    largeButton: {
+        width: "100%"
     },
     title: {
         fontSize: 20,
@@ -33,4 +35,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default BigButton;
+export default Button;
