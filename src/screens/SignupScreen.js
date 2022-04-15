@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import AuthFormInput from '../components/AuthFormInput';
 import useSignup from '../hooks/useSignup';
 import Logo from '../components/Logo';
@@ -20,34 +20,37 @@ function SignupScreen() {
     return (
         <View style={styles.container}>
 
-            <View style={{flex: 2}}>
-                <Logo style={styles.logo} width={75} height={75} />
-            </View>
+            <ScrollView contentContainerStyle={{flexGrow: 1}}>
 
-            <View style={{flex: 3}}>
-                <Text style={styles.inputHeader}>CREATE AN ACCOUNT</Text>
-                <AuthFormInput
-                    email={email}
-                    password={password}
-                    onChangeEmail={setEmail}
-                    onChangePassword={setPassword}
-                />
-            </View>
+                <View style={styles.logoContainer}>
+                    <Logo style={styles.logo} width={75} height={75} />
+                </View>
 
-            <View style={{flex: 3, alignItems: "center"}}>
-                <Button 
-                    title="Create account"
-                    onPress={() => handleSignup(email, password)}
-                    style={styles.loginButton}
-                    className="large"
-                />
-                <SocialButtonGroup 
-                    containerStyle={styles.socialGroupContainer} 
-                    spacing={22}
-                    facebookTitle="Sign up with Facebook"
-                    googleTitle="Sign up with Google"
-                />
-            </View>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.inputHeader}>Create an account</Text>
+                    <AuthFormInput
+                        email={email}
+                        password={password}
+                        onChangeEmail={setEmail}
+                        onChangePassword={setPassword}
+                    />
+                </View>
+
+                <View style={styles.buttonsContainer}>
+                    <Button 
+                        title="Create account"
+                        onPress={() => handleSignup(email, password)}
+                        style={styles.loginButton}
+                    />
+                    <SocialButtonGroup 
+                        containerStyle={styles.socialGroupContainer} 
+                        spacing={22}
+                        facebookTitle="Sign up with Facebook"
+                        googleTitle="Sign up with Google"
+                    />
+                </View>
+            </ScrollView>
+            
         </View>
     );
 }
@@ -57,11 +60,24 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         flex: 1
     },
+    logoContainer: {
+        flex: 2
+    },
+    inputContainer: {
+        flex: 3
+    },
+    buttonsContainer: {
+        flex: 3, 
+        paddingHorizontal: 20,
+        alignItems: "center"
+    },
     loginButton: {
-        backgroundColor: "#525252"
+        backgroundColor: "#525252",
+        width: 345
     },
     signupButton: {
-        backgroundColor: "white"
+        backgroundColor: "white",
+        width: 345
     },
     signupTitle: {
         color: "black",

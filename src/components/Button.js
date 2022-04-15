@@ -2,12 +2,12 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 
-function Button({ children, title, onPress, style, titleStyle, className="normal" }) {
+function Button({ children, title, onPress, style, titleStyle }) {
 
     return (
         <TouchableOpacity 
             onPress={onPress}
-            style={[styles.button, className === "large" ? styles.largeButton : null, style]}
+            style={[styles.button, style]}
         >
             {title ? <Text style={[styles.title, titleStyle]}>{title}</Text> : null}
             {children}
@@ -24,10 +24,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10,
-    },
-    largeButton: {
-        width: 345,
-        height: 45
     },
     title: {
         fontSize: 20,

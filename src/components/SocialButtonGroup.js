@@ -9,13 +9,13 @@ function SocialButtonGroup({ containerStyle, spacing, facebookTitle, googleTitle
 
     return (
         <View style={containerStyle}>
-            <Button style={styles.googleButton} className="large">
+            <Button style={styles.googleButton}>
                 <View style={styles.socialButtonContent}>
                     <Image style={styles.googleLogo} source={Assets.GOOGLE} width={30} height={30} />
                     <Text style={styles.googleButtonTitle}>{googleTitle ? googleTitle : "Continue with Google"}</Text>
                 </View>
             </Button>
-            <Button style={[styles.facebookButton, spacing ? {marginTop: spacing} : null]} className="large">
+            <Button style={[styles.facebookButton, spacing ? {marginTop: spacing} : null]}>
                 <View style={styles.socialButtonContent}>
                     <FontAwesome5 style={styles.facebookLogo} name="facebook" size={30} />
                     <Text style={styles.facebookButtonTitle}>{facebookTitle ? facebookTitle : "Continue with Facebook"}</Text>
@@ -30,6 +30,7 @@ function SocialButtonGroup({ containerStyle, spacing, facebookTitle, googleTitle
 const styles = StyleSheet.create({
     googleButton: {
         backgroundColor: "white",
+        width: 345
     },
     googleButtonTitle: {
         fontSize: 20,
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     },
     facebookButton: {
         backgroundColor: "#1877F2",
+        width: 345
     },
     facebookButtonTitle: {
         color: "white",

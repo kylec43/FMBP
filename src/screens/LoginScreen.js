@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import useLogin from '../hooks/useLogin';
 import AuthFormInput from '../components/AuthFormInput';
 import Button from '../components/Button';
@@ -16,42 +16,40 @@ function LoginScreen({ navigation }) {
 
     return (
         <>
-            <View style={styles.containerTop}>
+            <ScrollView contentContainerStyle={{flexGrow: 1}}>
+                <View style={styles.containerTop}>
 
-                <View style={{flex: 1}}>
-                    <Logo style={styles.logo} width={150} height={150} />
-                </View>
+                    <View style={styles.logoContainer}>
+                        <Logo style={styles.logo} width={150} height={150} />
+                    </View>
 
-                <View style={{flex: 1}}>
-                    <AuthFormInput
-                        email={email}
-                        password={password}
-                        onChangeEmail={setEmail}
-                        onChangePassword={setPassword}
-                    />
+                    <View style={styles.inputContainer}>
+                        <AuthFormInput
+                            email={email}
+                            password={password}
+                            onChangeEmail={setEmail}
+                            onChangePassword={setPassword}
+                        />
+                    </View>
                 </View>
-            </View>
-            <View style={styles.containerBottom}>
-                <View style={{flex: 2, justifyContent: "center"}}>
+                <View style={styles.containerBottom}>
                     <Button 
                         title="Login"
                         onPress={() => handleLogin(email, password)}
                         style={styles.loginButton}
-                        className="large"
                     />
                     <Button 
                         title="Sign up"
                         onPress={() => navigation.navigate("Signup")}
                         style={styles.signupButton}
                         titleStyle={styles.signupTitle}
-                        className="large"
                     />
                     <SocialButtonGroup
                         containerStyle={styles.socialGroupContainer}
                         spacing={22}
                     />
                 </View>
-            </View>
+            </ScrollView>
         </>
     );
 }
@@ -63,14 +61,24 @@ const styles = StyleSheet.create({
     },
     containerBottom: {
         paddingHorizontal: 30,
+        justifyContent: "center",
+        alignItems: "center",
+        flex: 1
+    },
+    logoContainer: {
+        flex: 1
+    },
+    inputContainer: {
         flex: 1
     },
     loginButton: {
-        backgroundColor: "#525252"
+        backgroundColor: "#525252",
+        width: 345
     },
     signupButton: {
         backgroundColor: "white",
         marginTop: 22,
+        width: 345
     },
     signupTitle: {
         color: "black",
