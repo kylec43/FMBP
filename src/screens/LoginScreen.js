@@ -15,47 +15,54 @@ function LoginScreen({ navigation }) {
     } = useLogin();
 
     return (
-        <View style={styles.container}>
+        <>
+            <View style={styles.containerTop}>
 
-            <View style={{flex: 1}}>
-                <Logo style={styles.logo} width={150} height={150} />
-            </View>
+                <View style={{flex: 1}}>
+                    <Logo style={styles.logo} width={150} height={150} />
+                </View>
 
-            <View style={{flex: 1}}>
-                <AuthFormInput
-                    email={email}
-                    password={password}
-                    onChangeEmail={setEmail}
-                    onChangePassword={setPassword}
-                />
+                <View style={{flex: 1}}>
+                    <AuthFormInput
+                        email={email}
+                        password={password}
+                        onChangeEmail={setEmail}
+                        onChangePassword={setPassword}
+                    />
+                </View>
             </View>
-
-            <View style={{flex: 2, justifyContent: "center"}}>
-                <Button 
-                    title="Login"
-                    onPress={() => handleLogin(email, password)}
-                    style={styles.loginButton}
-                    className="large"
-                />
-                <Button 
-                    title="Sign up"
-                    onPress={() => navigation.navigate("Signup")}
-                    style={styles.signupButton}
-                    titleStyle={styles.signupTitle}
-                    className="large"
-                />
-                <SocialButtonGroup
-                    containerStyle={styles.socialGroupContainer}
-                    spacing={20}
-                />
+            <View style={styles.containerBottom}>
+                <View style={{flex: 2, justifyContent: "center"}}>
+                    <Button 
+                        title="Login"
+                        onPress={() => handleLogin(email, password)}
+                        style={styles.loginButton}
+                        className="large"
+                    />
+                    <Button 
+                        title="Sign up"
+                        onPress={() => navigation.navigate("Signup")}
+                        style={styles.signupButton}
+                        titleStyle={styles.signupTitle}
+                        className="large"
+                    />
+                    <SocialButtonGroup
+                        containerStyle={styles.socialGroupContainer}
+                        spacing={22}
+                    />
+                </View>
             </View>
-        </View>
+        </>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    containerTop: {
         paddingHorizontal: 10,
+        flex: 1
+    },
+    containerBottom: {
+        paddingHorizontal: 30,
         flex: 1
     },
     loginButton: {
@@ -63,18 +70,18 @@ const styles = StyleSheet.create({
     },
     signupButton: {
         backgroundColor: "white",
-        marginTop: 20
+        marginTop: 22,
     },
     signupTitle: {
         color: "black",
-        fontWeight: "normal"
+        fontWeight: "normal",
     },
     logo: {
         alignSelf: "center",
         marginTop: 20
     },
     socialGroupContainer: {
-        marginTop: 20
+        marginTop: 38
     }
 });
 

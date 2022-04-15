@@ -20,13 +20,14 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: "#24a0ed",
         width: 200,
-        height: 60,
+        height: 45,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 5,
+        borderRadius: 10,
     },
     largeButton: {
-        width: "100%"
+        width: 345,
+        height: 45
     },
     title: {
         fontSize: 20,

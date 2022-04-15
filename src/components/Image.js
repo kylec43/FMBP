@@ -6,7 +6,7 @@ function Image({ source, style, width, height }) {
     return (
         <RNImage 
             style={[styles.image, style, width ? {width} : null, height ? {height} : null]} 
-            source={source} 
+            source={source}
         />
     );
 }

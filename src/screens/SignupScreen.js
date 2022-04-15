@@ -34,7 +34,7 @@ function SignupScreen() {
                 />
             </View>
 
-            <View style={{flex: 3}}>
+            <View style={{flex: 3, alignItems: "center"}}>
                 <Button 
                     title="Create account"
                     onPress={() => handleSignup(email, password)}
@@ -43,7 +43,9 @@ function SignupScreen() {
                 />
                 <SocialButtonGroup 
                     containerStyle={styles.socialGroupContainer} 
-                    spacing={20} 
+                    spacing={22}
+                    facebookTitle="Sign up with Facebook"
+                    googleTitle="Sign up with Google"
                 />
             </View>
         </View>
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     socialGroupContainer: {
-        marginTop: 20
+        marginTop: 38
     }
 });
 
