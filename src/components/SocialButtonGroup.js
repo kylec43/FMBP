@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "flex-start",
         marginLeft: 20,
-        paddingLeft: 20
+        paddingHorizontal: 20
     }
 });
 
