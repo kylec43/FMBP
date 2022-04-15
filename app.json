@@ -4,6 +4,7 @@
     "slug": "FMBP",
     "version": "1.0.0",
     "android": {
+      "package": "com.company.fmbp43",
       "softwareKeyboardLayoutMode": "pan"
     },
     "assetBundlePatterns": [
