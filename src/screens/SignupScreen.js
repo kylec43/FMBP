@@ -50,7 +50,7 @@ function SignupScreen() {
                     />
                 </View>
             </ScrollView>
-            
+
         </View>
     );
 }
@@ -68,16 +68,17 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         flex: 3, 
-        paddingHorizontal: 20,
-        alignItems: "center"
     },
     loginButton: {
         backgroundColor: "#525252",
-        width: 345
+        width: "100%",
+        maxWidth: 345,
+        alignSelf: "center"
     },
     signupButton: {
         backgroundColor: "white",
-        width: 345
+        width: "100%",
+        maxWidth: 345
     },
     signupTitle: {
         color: "black",
@@ -95,7 +96,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     socialGroupContainer: {
-        marginTop: 38
+        marginTop: 38,
+        alignItems: "center"
     }
 });
 

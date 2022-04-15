@@ -30,7 +30,8 @@ function SocialButtonGroup({ containerStyle, spacing, facebookTitle, googleTitle
 const styles = StyleSheet.create({
     googleButton: {
         backgroundColor: "white",
-        width: 345
+        width: "100%",
+        maxWidth: 345
     },
     googleButtonTitle: {
         fontSize: 20,
@@ -40,7 +41,8 @@ const styles = StyleSheet.create({
     },
     facebookButton: {
         backgroundColor: "#1877F2",
-        width: 345
+        width: "100%",
+        maxWidth: 345
     },
     facebookButtonTitle: {
         color: "white",

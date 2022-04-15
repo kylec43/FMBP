@@ -60,10 +60,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     containerBottom: {
-        paddingHorizontal: 30,
         justifyContent: "center",
-        alignItems: "center",
-        flex: 1
+        flex: 1,
     },
     logoContainer: {
         flex: 1
@@ -73,12 +71,16 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         backgroundColor: "#525252",
-        width: 345
+        width: "100%",
+        maxWidth: 345,
+        alignSelf: "center"
     },
     signupButton: {
         backgroundColor: "white",
         marginTop: 22,
-        width: 345
+        width: "100%",
+        maxWidth: 345,
+        alignSelf: "center"
     },
     signupTitle: {
         color: "black",
@@ -89,7 +91,8 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     socialGroupContainer: {
-        marginTop: 38
+        marginTop: 38,
+        alignItems: "center"
     }
 });
 
